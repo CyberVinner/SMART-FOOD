@@ -1,33 +1,34 @@
 import React, { useState } from 'react';
 import './DonatorDashboard.css'; // Importing CSS for styling
 
-const DonatorDashboard = () => {
+const DonatorDashboard = ({ addFoodDetails }) => {
   const [foodDetails, setFoodDetails] = useState({
     foodName: '',
     description: '',
     quantity: '',
-    image: null
+    image: null,
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFoodDetails(prevState => ({
+    setFoodDetails((prevState) => ({
       ...prevState,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleImageChange = (e) => {
-    setFoodDetails(prevState => ({
+    setFoodDetails((prevState) => ({
       ...prevState,
-      image: e.target.files[0]
+      image: URL.createObjectURL(e.target.files[0]), // Mocking image URL
     }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic here, like sending the data to the backend
-    console.log('Food details:', foodDetails);
+    // Pass the food details to the parent component (simulate sending data to backend)
+    addFoodDetails(foodDetails);
+    console.log('Food details submitted:', foodDetails);
   };
 
   return (
@@ -36,12 +37,12 @@ const DonatorDashboard = () => {
       <form onSubmit={handleSubmit} className="food-upload-form">
         <div className="form-group">
           <label>Food Name:</label>
-          <input 
-            type="text" 
-            name="foodName" 
+          <input
+            type="text"
+            name="foodName"
             value={foodDetails.foodName}
             onChange={handleChange}
-            required 
+            required
           />
         </div>
 
@@ -57,23 +58,18 @@ const DonatorDashboard = () => {
 
         <div className="form-group">
           <label>Quantity:</label>
-          <input 
-            type="text" 
+          <input
+            type="text"
             name="quantity"
             value={foodDetails.quantity}
             onChange={handleChange}
-            required 
+            required
           />
         </div>
 
         <div className="form-group">
           <label>Upload Food Image:</label>
-          <input 
-            type="file"
-            accept="image/*"
-            onChange={handleImageChange}
-            required 
-          />
+          <input type="file" accept="image/*" onChange={handleImageChange} required />
         </div>
 
         <button type="submit" className="submit-btn">Submit</button>

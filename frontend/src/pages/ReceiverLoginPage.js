@@ -1,16 +1,16 @@
-// Donatorloginpage.js
 import React, { useState } from 'react';
-import './styles/donatorlogin.css'; // Import the CSS file for the DonatorDashboard
-import DonatorDashboard from './DonatorDashboard'
+import './styles/ReceiverLoginPage.css'; // Import the CSS file for the ReceiverDashboard
+import ReceiverDashboard from './ReceiverDashboardPage'; // Import the ReceiverDashboard component
 
-const Donatorloginpage = () => {
+const ReceiverLoginPage = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // State to check login status
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (username === 'donator' && password === 'password') {
+    // Simulating login credentials (you can replace this with actual authentication logic)
+    if (username === 'receiver' && password === 'password') {
       setIsLoggedIn(true);
     } else {
       alert('Invalid credentials, please try again!');
@@ -18,10 +18,10 @@ const Donatorloginpage = () => {
   };
 
   return (
-    <div className="donator-dashboard-container">
+    <div className="receiver-dashboard-container">
       {!isLoggedIn ? (
         <div className="login-container">
-          <h2>Donator Login</h2>
+          <h2>Receiver Login</h2>
           <form onSubmit={handleLogin}>
             <input
               type="text"
@@ -42,11 +42,11 @@ const Donatorloginpage = () => {
         </div>
       ) : (
         <div className="dashboard-container">
-          <DonatorDashboard />
+          <ReceiverDashboard />
         </div>
       )}
     </div>
   );
 };
 
-export default Donatorloginpage;
+export default ReceiverLoginPage;
