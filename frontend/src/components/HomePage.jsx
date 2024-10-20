@@ -12,9 +12,7 @@ const HomePage = () => {
       <p>Help the needy by donating or receiving food!</p>
 
       <div className="button-container">
-        <button className="primary-button" onClick={() => navigate('/signup-admin')}>
-          Admin Signup
-        </button>
+      
         <button className="primary-button" onClick={() => navigate('/login-admin')}>
           Admin Login
         </button>
