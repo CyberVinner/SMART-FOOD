@@ -12,7 +12,7 @@ const FoodList = () => {
     const fetchData = async () => {
       const token = localStorage.getItem('authToken');
       try {
-        const { data } = await axios.get('http://localhost:5000/api/food/available-food', {
+        const { data } = await axios.get('https://smart-food-h3nq.onrender.com/api/food/available-food', {
           headers: {
             Authorization: `Bearer ${token}`,
           },

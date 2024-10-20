@@ -14,7 +14,7 @@ const FoodCard = ({ food }) => {
       </p>
       {food.image && (
         <img
-          src={`http://localhost:5000/uploads/${food.image}`}
+          src={`https://smart-food-h3nq.onrender.com/uploads/${food.image}`}
           alt="Food"
         />
       )}

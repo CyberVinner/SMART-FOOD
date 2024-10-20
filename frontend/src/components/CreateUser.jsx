@@ -15,7 +15,7 @@ const CreateUser = () => {
     try {
       const token = localStorage.getItem('authToken');
       await axios.post(
-        'http://localhost:5000/api/users/create-user',
+        'https://smart-food-h3nq.onrender.com/api/users/create-user',
         { username, password, role },
         {
           headers: {
@@ -33,7 +33,7 @@ const CreateUser = () => {
   const fetchUsers = async () => {
     try {
       const token = localStorage.getItem('authToken');
-      const response = await axios.get('http://localhost:5000/api/users/all-users', {
+      const response = await axios.get('https://smart-food-h3nq.onrender.com/api/users/all-users', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -48,7 +48,7 @@ const CreateUser = () => {
   const handleDelete = async (username) => {
     try {
       const token = localStorage.getItem('authToken');
-      await axios.delete(`http://localhost:5000/api/users/delete-user/${username}`, {
+      await axios.delete(`https://smart-food-h3nq.onrender.com/api/users/delete-user/${username}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

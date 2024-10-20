@@ -11,7 +11,7 @@ const DonatorDashboard = () => {
     const fetchFoodItems = async () => {
       const token = localStorage.getItem('authToken');
       try {
-        const { data } = await axios.get('http://localhost:5000/api/food/available-food', {
+        const { data } = await axios.get('https://smart-food-h3nq.onrender.com/api/food/available-food', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -32,7 +32,7 @@ const DonatorDashboard = () => {
   const handleDelete = async (id) => {
     const token = localStorage.getItem('authToken');
     try {
-      const response = await axios.delete(`http://localhost:5000/api/food/${id}`, {
+      const response = await axios.delete(`https://smart-food-h3nq.onrender.com/api/food/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -55,7 +55,7 @@ const DonatorDashboard = () => {
             <p>Phone: {food.phone}</p>
             <p>Location: {food.location}</p>
             <p>Details: {food.foodDetails}</p>
-            {food.image && <img src={`http://localhost:5000/uploads/${food.image}`} alt="Food" />}
+            {food.image && <img src={`https://smart-food-h3nq.onrender.com/uploads/${food.image}`} alt="Food" />}
             <button onClick={() => handleEdit(food)}>Edit</button>
             <button className="delete-button" onClick={() => handleDelete(food._id)}>Delete</button>
           </li>

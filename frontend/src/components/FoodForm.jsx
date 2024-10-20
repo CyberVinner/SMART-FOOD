@@ -54,7 +54,7 @@ const FoodForm = () => {
       if (foodItem) {
         // Update existing food item
         await axios.put(
-          `http://localhost:5000/api/food/${foodItem._id}`,
+          `https://smart-food-h3nq.onrender.com/api/food/${foodItem._id}`,
           form,
           {
             headers: {
@@ -66,7 +66,7 @@ const FoodForm = () => {
         alert("Food donation updated successfully");
       } else {
         // Create new food donation
-        await axios.post("http://localhost:5000/api/food/donate", form, {
+        await axios.post("https://smart-food-h3nq.onrender.com/api/food/donate", form, {
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "multipart/form-data",

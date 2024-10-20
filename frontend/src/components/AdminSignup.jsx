@@ -11,7 +11,7 @@ const AdminSignup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/users/signup', {
+      const response = await axios.post('https://smart-food-h3nq.onrender.com/api/users/signup', {
         username,
         password,
       });

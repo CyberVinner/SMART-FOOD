@@ -11,7 +11,7 @@ const LoginUser = ({ role }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post('http://localhost:5000/api/users/login-user', { username, password });
+      const { data } = await axios.post('https://smart-food-h3nq.onrender.com/api/users/login-user', { username, password });
 
       localStorage.setItem('authToken', data.token);
       localStorage.setItem('userRole', data.role);
